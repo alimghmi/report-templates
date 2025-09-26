@@ -15,6 +15,12 @@
       "args": {
         "required": ["name"],
         "optional": ["greeting", "items"]
+      },
+      "pdf": {
+        "page_size": "A4",
+        "orientation": "L",
+        "header": "<div>Header</div>",
+        "footer": "<div>Footer</div>"
       }
     }
   ]
