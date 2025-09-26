@@ -1,6 +1,13 @@
-def check_exists(args: dict) -> bool:
+def main(args, db):
     """
-    Stub for existence checks later (e.g., query report DB).
-    For now, just require 'name' to be present.
+    Return True/False. Use db if you want to check for record existence.
     """
-    return bool(args.get("name"))
+    # Example: ensure 'name' provided or a certain row exists
+    # if not args.get("name"):
+    #     return False
+
+    # Example DB check:
+    # exists = db.fetch_one("SELECT 1 AS ok FROM dbo.users WHERE email = ?", [args["name"]])
+    # return bool(exists)
+
+    return True

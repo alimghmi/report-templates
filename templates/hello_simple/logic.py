@@ -1,16 +1,22 @@
 from datetime import datetime, timezone
 
-def run(args: dict) -> dict:
+def main(args, db):
     """
-    Return placeholders for the HTML template.
-    No external calls here; just shape the data from args.
+    args: dict from API
+    db: MSSQLClient (pyodbc) context-managed by the app
     """
     name = args.get("name", "World")
     greeting = args.get("greeting", "Hello")
-    items = args.get("items", ["alpha", "beta", "gamma"])
+
+    # Example DB use (commented if you don't have MSSQL ready yet)
+    # row = db.fetch_one("SELECT TOP 1 id, title FROM dbo.reports WHERE owner = ?", [name])
+    # recent_title = row["title"] if row else "N/A"
+
+    items = args.get("items") or ["alpha", "beta", "gamma"]
     return {
         "name": name,
         "greeting": greeting,
         "items": items,
-        "generated_at": datetime.now(timezone.utc).isoformat()
+        "generated_at": datetime.now(timezone.utc).isoformat(),
+        # "recent_title": recent_title,
     }
