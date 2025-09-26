@@ -1,0 +1,21 @@
+{
+  "version": "2025-09-22T00:00:00Z",
+  "templates": [
+    {
+      "id": "hello_simple",
+      "title": "Hello Simple",
+      "description": "Greets a user and lists items.",
+      "module": "hello",
+      "path": "templates/hello_simple",
+      "files": {
+        "html": "template.html",
+        "logic": "logic.py",
+        "test":  "test.py"
+      },
+      "args": {
+        "required": ["name"],
+        "optional": ["greeting", "items"]
+      }
+    }
+  ]
+}
