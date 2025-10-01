@@ -10,7 +10,8 @@ def main(args, db):
 
     # Example DB use (commented if you don't have MSSQL ready yet)
     # row = db.fetch_one("SELECT TOP 1 id, title FROM dbo.reports WHERE owner = ?", [name])
-    # recent_title = row["title"] if row else "N/A"
+    row = db.fetch_one("select top 1 name from dbo.spglobal")
+    recent_title = row["name"] if row else "N/A"
 
     items = args.get("items") or ["alpha", "beta", "gamma"]
     return {
@@ -18,5 +19,5 @@ def main(args, db):
         "greeting": greeting,
         "items": items,
         "generated_at": datetime.now(timezone.utc).isoformat(),
-        # "recent_title": recent_title,
+        "recent_title": recent_title,
     }
